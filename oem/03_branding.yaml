@@ -1,0 +1,54 @@
+name: "Branding"
+stages:
+   initramfs:
+     - name: "Branding"
+       if: '[ -f "/run/elemental/active_mode" ]'
+       hostname: "elemental"
+       files:
+        - path: /etc/issue
+          content: |
+            Welcome to \S !
+            IP address \4
+            Login with user: root, password: elemental
+          permissions: 0644
+          owner: 0
+          group: 0
+     - name: "Branding"
+       if: '[ -f "/run/elemental/passive_mode" ]'
+       hostname: "elemental"
+       files:
+        - path: /etc/issue
+          content: |
+            Welcome to \S (passive)!
+            IP address \4
+            Login with user: root, password: elemental
+            There might be an issue with the active partition, booted in passive.
+          permissions: 0644
+          owner: 0
+          group: 0
+     - name: "Branding recovery"
+       if: '[ -f "/run/elemental/recovery_mode" ]'
+       hostname: "recovery"
+       files:
+        - path: /etc/issue
+          content: |
+            Welcome to \S recovery!
+            IP address \4
+            Login with user: root, password: elemental
+            Reset the active system with "elemental reset".
+          permissions: 0644
+          owner: 0
+          group: 0
+     - name: "Branding live CD"
+       if: '[ -f "/run/elemental/live_mode" ]'
+       hostname: "installer"
+       files:
+        - path: /etc/issue
+          content: |
+            Welcome to \S Live CD!
+            IP address \4
+            Login with user: root, password: elemental
+            Install the system with "elemental install".
+          permissions: 0644
+          owner: 0
+          group: 0

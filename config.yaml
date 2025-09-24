@@ -1,0 +1,4 @@
+install:
+  grub-entry-name: Ubuntu 24.04 LTS for Docker (__VERSION__)
+upgrade:
+  system: oci:burmilla/elemental-prototype:latest
