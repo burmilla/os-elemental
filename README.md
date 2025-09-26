@@ -1,4 +1,4 @@
-# Elemental OS
+# Ubuntu 24.04 LTS for Docker
 Minimal OS to run Docker containers. Built with [Elemental toolkit](https://rancher.github.io/elemental-toolkit/)
 
 # Usage
@@ -9,4 +9,5 @@ Minimal OS to run Docker containers. Built with [Elemental toolkit](https://ranc
 
 # Upgrade
 1. Run command `elemental upgrade`
-2. Check version by running `grep IMAGE_TAG /etc/os-release`
+2. Reboot
+3. Check version by running `grep IMAGE_TAG /etc/os-release`
